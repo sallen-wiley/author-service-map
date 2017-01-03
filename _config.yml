@@ -1,4 +1,5 @@
 name: Your New Jekyll Site
 markdown: redcarpet
-highlighter: Pygments # or rouge or null
+highlighter: Rouge
 exclude: ["node_modules", "gulpfile.js", "package.json"]
+baseurl: /author-service-map
