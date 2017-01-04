@@ -1,0 +1,791 @@
+{% raw %}
+<div class="controls">
+
+    <div class="wheel-bg"></div>
+    <div class="controls-bg"></div>
+
+    <div class="wheel-cont">
+
+        <div id="wheel" data-filter-group="stage">
+            <div class="wheel__circle"></div>
+            <div id="step1" class="step1 node active-node filter-control" data-filter=".stage-1">
+                <div class="node-content">
+                    <div class="node-text">
+                        <span class="node-text__stage">1</span>
+                        <br>
+                        <span>Discovery</span>
+                    </div>
+                </div>
+            </div>
+            <div id="step2" class="step2 node filter-control" data-filter=".stage-2">
+                <div class="node-content">
+                    <div class="node-text">
+                        <span class="node-text__stage">2</span>
+                        <br>
+                        <span>Analysis</span>
+                    </div>
+                </div>
+            </div>
+            <div id="step3" class="step3 node filter-control" data-filter=".stage-3">
+                <div class="node-content">
+                    <div class="node-text">
+                        <span class="node-text__stage">3</span>
+                        <br>
+                        <span>Writing</span>
+                    </div>
+                </div>
+            </div>
+            <div id="step4" class="step4 node filter-control" data-filter=".stage-4">
+                <div class="node-content">
+                    <div class="node-text">
+                        <span class="node-text__stage">4</span>
+                        <br>
+                        <span class="node-text--multilined">Submission <br>& Peer Review</span>
+                    </div>
+                </div>
+            </div>
+            <div id="step5" class="step5 node filter-control" data-filter=".stage-5">
+                <div class="node-content">
+                    <div class="node-text">
+                        <span class="node-text__stage">5</span>
+                        <br>
+                        <span>Publication</span>
+                    </div>
+                </div>
+            </div>
+            <div id="step6" class="step6 node filter-control" data-filter=".stage-6">
+                <div class="node-content">
+                    <div class="node-text">
+                        <span class="node-text__stage">6</span>
+                        <br>
+                        <span>Promotion</span>
+                    </div>
+                </div>
+            </div>
+            <div id="step7" class="step7 node filter-control" data-filter=".stage-7">
+                <div class="node-content">
+                    <div class="node-text">
+                        <span class="node-text__stage">7</span>
+                        <br>
+                        <span>Assessment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="list-cont">
+        <h3>Services</h3>
+        <div class="list">
+            <div id="placeHolder" style="display: none;">No results</div>
+            <div id="listItems"></div>
+        </div>
+    </div>
+    
+    <div class="filters-cont">
+        <h3>Filter by Service Type</h3>
+        <div class="filters">
+            <form class="radio-group" data-filter-group="serviceType">
+                <div class="radio filter filter--any">
+                    <label>
+                        <input type="radio" name="serviceType" class="filter-control" data-filter="" checked>All
+                    </label>
+                </div>
+                <div class="radio filter filter--aTool">
+                    <label>
+                        <input type="radio" name="serviceType" class="filter-control" data-filter=".aTool">Service is <span class="highlight highlight-aTool">tool/product</span> based and solves a specfic need in the author journey
+                    </label>
+                </div>
+                <div class="radio filter filter--info">
+                    <label>
+                        <input type="radio" name="serviceType" class="filter-control" data-filter=".info">Service is more learning-based and solves a more <span class="highlight highlight-info-general">general</span> need/<span class="highlight highlight-info-specific">specific</span> need in the author journey
+                    </label>
+                </div>
+                <div class="radio filter filter--policy">
+                    <label>
+                        <input type="radio" name="serviceType" class="filter-control" data-filter=".policy">Service is <span class="highlight highlight-policy">policy-based</span>
+                    </label>
+                </div>
+                <div class="radio filter filter--rTool">
+                    <label>
+                        <input type="radio" name="serviceType" class="filter-control" data-filter=".rTool">Service is a specfic <span class="highlight highlight-rTool">Researcher tool</span>
+                    </label>
+                </div>
+            </form>
+            <!--     <h3>Service Provider</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="shape">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".wiley">wiley</button>
+      <button class="button" data-filter=".other">other</button>
+    </div> -->
+        </div>
+    </div>
+
+    
+
+</div>
+
+<div id="modals"></div>
+
+<script id="entry-template" type="text/x-handlebars-template">
+    {{#each service}}
+    <div class="list-item {{serviceType}} {{serviceProvider}} {{#each serviceStages}}{{this}} {{/each}}" data-toggle="modal" data-target="#{{serviceId}}-modal">{{serviceName}}{{#if serviceSubs}}<br><span class="list-item__serviceSubs">{{serviceSubs}}</span>{{/if}}</div>
+    {{/each}}
+</script>
+
+<script id="serviceModal-template" type="text/x-handlebars-template">
+    {{#each service}}
+    <div class="modal fade" id="{{serviceId}}-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{serviceName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Info about {{serviceName}}</p>
+                    <a href="#">Link to {{serviceName}} site</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script>
+// IMPORTANT: Greensock animation library may need to be licensed depending on use. Please check here: https://greensock.com/licensing/
+// An alternative animation library called Velocity.js could be used in Greensocks's place - this comes with an MIT license.
+
+// handlebars - create list items
+
+// get placeholder divs
+var list = $("#listItems"),
+    modals = $("#modals");
+// get templates wrapped in scripts tags
+var source = $("#entry-template").html(),
+    modalSource = $("#serviceModal-template").html();
+// compile template with handlebars
+var template = Handlebars.compile(source),
+    modalTemplate = Handlebars.compile(modalSource);
+// create data
+var context = {
+        "service": [{
+            "serviceId": 41,
+            "serviceName": "Altmetric Service",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-6",
+                "stage-7",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 1,
+            "serviceName": "Article Discovery Tools",
+            "serviceSubs": "Anywhere Article, ReadCube PDF, Journal Apps, Article Indexing, Research4Life",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-1",
+                "stage-6",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 40,
+            "serviceName": "Article Share",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-6",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 3,
+            "serviceName": "Author Compliance Tool",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 5,
+            "serviceName": "Author Licensing",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                "stage-5",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 8,
+            "serviceName": "Automated Production",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-5",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 10,
+            "serviceName": "CHORUS",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                "stage-5",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 43,
+            "serviceName": "Citation Tracking",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-7",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 11,
+            "serviceName": "Colour Charges",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-5",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 12,
+            "serviceName": "Cover Service",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-5",
+                "stage-6",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 14,
+            "serviceName": "Data Sharing Service",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                "stage-4",
+                "stage-5",
+                "stage-6",
+                null
+            ]
+        }, {
+            "serviceId": 17,
+            "serviceName": "Funder Picker Tool",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 20,
+            "serviceName": "Journal Finder",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                "stage-4",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 42,
+            "serviceName": "Kudos",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-6",
+                "stage-7",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 22,
+            "serviceName": "Online Submission",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 23,
+            "serviceName": "Open Access",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                "stage-5",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 24,
+            "serviceName": "ORCID",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                "stage-6",
+                "stage-7",
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 25,
+            "serviceName": "Overleaf",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 26,
+            "serviceName": "Page Charges",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-5",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 27,
+            "serviceName": "PMC Deposition",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-5",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 28,
+            "serviceName": "Production Tracking",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-5",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 30,
+            "serviceName": "Publons",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                "stage-6",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 36,
+            "serviceName": "Transferable Peer Review",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 37,
+            "serviceName": "Video Abstracts",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-6",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 38,
+            "serviceName": "Wiley Editing Services",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                "stage-4",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 39,
+            "serviceName": "Wiley OA Accounts",
+            "serviceType": "aTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                "stage-5",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 6,
+            "serviceName": "Author Webinar Series",
+            "serviceType": "info",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 7,
+            "serviceName": "Author Workshops",
+            "serviceType": "info",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 15,
+            "serviceName": "Editor Resources",
+            "serviceType": "info",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 18,
+            "serviceName": "How to Blog Series",
+            "serviceType": "info",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                "stage-4",
+                "stage-5",
+                "stage-6",
+                "stage-7"
+            ]
+        }, {
+            "serviceId": 21,
+            "serviceName": "Mentorship Program",
+            "serviceType": "info",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 33,
+            "serviceName": "Researcher Academy",
+            "serviceType": "info",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 4,
+            "serviceName": "Author Guidelines",
+            "serviceType": "info info-specific",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 16,
+            "serviceName": "Ethics Guidelines",
+            "serviceType": "info info-specific",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                "stage-4",
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 29,
+            "serviceName": "Promotional Toolkit",
+            "serviceType": "info info-specific",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-6",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 34,
+            "serviceName": "Reviewer Resources",
+            "serviceType": "info info-specific",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-4",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 13,
+            "serviceName": "Data Sharing Policy",
+            "serviceType": "policy",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-3",
+                "stage-4",
+                "stage-5",
+                "stage-6",
+                null
+            ]
+        }, {
+            "serviceId": 35,
+            "serviceName": "Self-archiving Policy",
+            "serviceType": "policy",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-5",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 9,
+            "serviceName": "ChemPlanner",
+            "serviceType": "rTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-1",
+                null,
+                null,
+                null,
+                null
+            ]
+        }, {
+            "serviceId": 44,
+            "serviceName": "Wiley Spectra Lab",
+            "serviceType": "rTool",
+            "serviceProvider": "wiley",
+            "serviceStages": [
+                "stage-1",
+                null,
+                null,
+                null,
+                null
+            ]
+        }]
+    }
+    //make the stuff! pass the data INTO the template and ADD to the placeholders
+list.html(template(context));
+modals.html(modalTemplate(context));
+
+var i, j, k,
+    allNodes = document.getElementsByClassName("node"),
+    allLists = document.getElementsByClassName("step-list");
+
+function getPosition(elementToFind, arrayElements) {
+    var i;
+    for (i = 0; i < arrayElements.length; i += 1) {
+        if (arrayElements[i] === elementToFind) {
+            return i;
+        }
+    }
+    return null; //not found
+}
+
+function angleToRotateBy(x, y) {
+    var a = (x * Math.PI / 180) - Math.PI;
+    var b = (y * Math.PI / 180) - Math.PI;
+    return Math.atan2(Math.sin(b - a), Math.cos(b - a)) * (180 / Math.PI);
+}
+
+function rotateWheel(x) {
+    // convert variable to cumulative tween
+    var addX = "+=" + x;
+    var minusX = "-=" + x;
+    // execute tween
+    TweenLite.to(wheel, 0.5, {
+        rotation: addX
+    });
+    TweenLite.to(".node", 0.5, {
+        rotation: minusX
+    });
+}
+
+for (i = 0; i < allNodes.length; i++) {
+
+    var thisNode = allNodes[i];
+
+    thisNode.onclick = function() {
+
+        //find index of current selected node
+        var currentActiveNode = document.getElementsByClassName("active-node")[0],
+            currentActiveNodeIndex = getPosition(currentActiveNode, allNodes),
+            currentActiveNodeAngle = (360 / 7) * currentActiveNodeIndex;
+
+        //remove/add the active class to node and lists
+        for (j = 0; j < allNodes.length; j++) {
+            allNodes[j].classList.remove("active-node")
+        }
+        this.classList.add("active-node")
+
+        //find index of clicked node and compute its angle position
+        var thisNodeIndex = getPosition(this, allNodes),
+            thisNodeAngle = (360 / 7) * thisNodeIndex;
+
+        //find rotation direction
+        var rotateBy = angleToRotateBy(currentActiveNodeAngle, thisNodeAngle);
+
+        //rotate diagram if needed
+        if (!(rotateBy === 0)) {
+            rotateWheel(rotateBy);
+        }
+
+    }
+}
+
+// external js: isotope.pkgd.js
+
+// init Isotope
+var $grid = $('.list').isotope({
+    itemSelector: '.list-item',
+    layoutMode: 'masonry',
+    hiddenStyle: {
+        opacity: 0
+    },
+    visibleStyle: {
+        opacity: 1
+    }
+});
+
+// store filter for each group
+var filters = {};
+
+$('.controls').on('click', '.filter-control', function() {
+    var $this = $(this);
+    // get group key
+    var $buttonGroup = $this.parents('.radio-group');
+    var filterGroup = $buttonGroup.attr('data-filter-group');
+    // set filter for group
+    filters[filterGroup] = $this.attr('data-filter');
+    // combine filters
+    var filterValue = concatValues(filters);
+    // set filter for Isotope
+    $grid.isotope({
+        filter: filterValue
+    });
+});
+
+// change is-checked class on buttons
+// $('.radio-group').each(function(i, buttonGroup) {
+//     var $buttonGroup = $(buttonGroup);
+//     $buttonGroup.on('click', 'button', function() {
+//         $buttonGroup.find('.is-checked').removeClass('is-checked');
+//         $(this).addClass('is-checked');
+//     });
+// });
+
+// flatten object by concatting values
+function concatValues(obj) {
+    var value = '';
+    for (var prop in obj) {
+        value += obj[prop];
+    }
+    return value;
+}
+
+//return number of visible items
+var iso = $grid.data('isotope');
+$grid.isotope('on', 'layoutComplete', function() {
+    var numItems = iso.filteredItems.length;
+    if (numItems > 0) {
+        placeHolder.style.display = "none";
+    } else {
+        placeHolder.style.display = "block";
+    }
+});
+
+// simulate click on step 1 - couldn't work out how to initiate filters properly on load.
+document.getElementById("step1").click();
+</script>
+{% endraw %}

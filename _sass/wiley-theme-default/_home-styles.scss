@@ -1,0 +1,15 @@
+#wrt-home-intro {
+    background-color: map-get($colors, teal-dark);
+}
+
+#wrt-home-about {
+    background-color: map-get($colors, grey-200);
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+#wrt-home-contact {
+    background-color: map-get($colors, teal);
+    padding-top: 64px;
+    padding-bottom: 64px;
+}

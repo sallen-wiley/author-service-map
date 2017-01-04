@@ -1,0 +1,334 @@
+//// COLORS
+$greys: ( grey-50: #FAFAFA,
+grey-100: #F5F5F5,
+grey-200: #EEEEEE,
+grey-300: #E0E0E0,
+grey-400: #BDBDBD,
+grey-500: #9E9E9E,
+grey-600: #757575,
+grey-700: #616161,
+grey-800: #424242,
+grey-900: #212121);
+$others: ( wiley-black: #1F1F1E,
+wiley-white: #FFFFFF,
+teal-light: #B1D8CF,
+teal: #00A3B2,
+teal-dark: #075B81,
+purple-light: #BCADE2,
+purple: #855199,
+purple-dark: #522464,
+blue-light: #A0C7E5,
+blue: #648FD8,
+blue-dark: #032977,
+green-light: #C6DE8C,
+green: #92CB9C,
+green-dark: #1D5C56,
+red-light: #D22938,
+red: #B40043,
+red-dark: #800049,
+orange-light: #F2BA49,
+orange: #E87700,
+orange-dark: #E55800);
+$colors: map-merge($others,
+$greys);
+.controls {
+    position: relative;
+    height: 800px;
+    overflow: hidden;
+}
+
+.wheel-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -300px;
+    width: 35%;
+    background-color: map-get($colors, grey-300);
+    // background-image: url("https://rawgit.com/wileycreativeservices/general-assets/master/images/Extra%20shapes_RGB-05.svg");
+    // background-repeat: no-repeat;
+    // background-position: 100% 270px;
+    // background-size: auto 620px;
+    &:after {
+        content: "";
+        width: 160px;
+        height: 160px;
+        position: absolute;
+        border-bottom-width: 4px;
+        border-top-width: 4px;
+        border-left-width: 4px;
+        border-right-width: 0;
+        border-color: map-get($colors, teal);
+        border-style: solid;
+        border-radius: 50%;
+        top: 320px;
+        right: -80px;
+    }
+}
+
+.controls-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -300px;
+    width: 65%;
+    background-color: map-get($colors, teal-dark);
+}
+
+.wheel-cont {
+    width: 35%;
+    position: relative;
+    float: left;
+    min-height: 1px;
+    height: 100%;
+}
+
+.list-cont,
+.filters-cont {
+    width: 65%;
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 100px;
+    padding-right: 50px;
+}
+
+.list-cont {
+    padding-top: 50px;
+}
+
+// Position the wheel
+#wheel {
+    height: 400px;
+    width: 400px;
+    margin: 0;
+    position: absolute;
+    top: 200px;
+    right: 0;
+    border-radius: 50%;
+}
+
+// centre the node on its point
+.node {
+    position: absolute;
+    &.radio {
+        margin: 0;
+    }
+    .node-content {
+        position: relative;
+        opacity: 0.85;
+        width: 120px;
+        height: 120px;
+        border: 8px solid map-get($colors, teal-dark);
+        border-radius: 50%;
+        overflow: visible;
+        background-color: map-get($colors, teal);
+        box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.5);
+        box-sizing: border-box;
+        .node-text {
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 0 5px rgba(0,0,0,0.75);
+            text-align: center;
+            font-size: 32px;
+            white-space: nowrap;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -75%);
+            line-height: 85%;
+            .node-text--multilined {
+                font-size: 24px;
+            }
+            .node-text__stage {
+                font-size: 14px;
+            }
+        }
+    }
+    &.active-node .node-content {
+        opacity: 1;
+    }
+}
+
+// Position the nodes
+.step1 {
+    left: 340px;
+    top: 140px;
+}
+
+.step2 {
+    left: 264px;
+    top: -16px;
+}
+
+.step3 {
+    left: 95px;
+    top: -55px;
+}
+
+.step4 {
+    left: -40px;
+    top: 53px;
+}
+
+.step5 {
+    left: -40px;
+    top: 226px;
+}
+
+.step6 {
+    left: 95px;
+    top: 335px;
+}
+
+.step7 {
+    left: 264px;
+    top: 296px;
+}
+
+.list {
+    transition-duration: 0.25s;
+    min-height: 150px;
+    max-height: 50vh;
+    max-width: 850px;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    overflow-y: scroll;
+}
+
+.filters {
+    max-width: 850px;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+h3 {
+    color: white;
+}
+
+// filter controls
+.filters {
+    margin-bottom: 25px;
+    .button-group {
+        margin-top: 30px;
+    }
+}
+
+.highlight {
+    padding: 1px 4px;
+    background-color: lightgrey;
+    border-radius: 2px;
+    color: white;
+    &.highlight-aTool {
+        background-color: map-get($colors, orange);
+    }
+    &.highlight-info-general {
+        background-color: map-get($colors, purple);
+    }
+    &.highlight-info-specific {
+        background-color: map-get($colors, purple-light);
+    }
+    &.highlight-policy {
+        background-color: map-get($colors, green);
+    }
+    &.highlight-rTool {
+        background-color: map-get($colors, red);
+    }
+}
+
+// .button.filter {
+//     border-radius: 5px;
+//     padding: 8px;
+//     background-color: map-get($colors, grey-200);
+//     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+//     border: 2px solid map-get($colors, grey-400);
+//     font-weight: 600;
+//     margin: 0 4px 4px 0;
+//     &.is-checked {
+//         box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+//     }
+//     &.filter--any {
+//         border-color: map-get($colors, teal);
+//         color: map-get($colors, teal);
+//         &.is-checked {
+//             background-color: map-get($colors, teal);
+//             color: #ffffff;
+//         }
+//     }
+//     &.filter--aTool {
+//         border-color: map-get($colors, orange);
+//         color: map-get($colors, orange);
+//         &.is-checked {
+//             background-color: map-get($colors, orange);
+//             color: #ffffff;
+//         }
+//     }
+//     &.filter--info {
+//         border-color: map-get($colors, purple);
+//         color: map-get($colors, purple);
+//         &.is-checked {
+//             background-color: map-get($colors, purple);
+//             color: #ffffff;
+//         }
+//     }
+//     &.filter--policy {
+//         border-color: map-get($colors, green);
+//         color: map-get($colors, green);
+//         &.is-checked {
+//             background-color: map-get($colors, green);
+//             color: #ffffff;
+//         }
+//     }
+//     &.filter--rTool {
+//         border-color: map-get($colors, red);
+//         color: map-get($colors, red);
+//         &.is-checked {
+//             background-color: map-get($colors, red);
+//             color: #ffffff;
+//         }
+//     }
+// }
+// list styling
+#placeHolder,
+.list-item {
+    float: left;
+    width: 200px;
+    margin: 5px;
+    padding: 10px;
+    background: lightgrey;
+    color: white;
+    line-height: 1.0;
+    position: relative;
+    border-radius: 4px;
+    &.aTool {
+        background-color: map-get($colors, orange);
+    }
+    &.info {
+        background-color: map-get($colors, purple);
+    }
+    &.info-specific {
+        background-color: map-get($colors, purple-light);
+    }
+    &.policy {
+        background-color: map-get($colors, green);
+    }
+    &.rTool {
+        background-color: map-get($colors, red);
+    }
+    .list-item__serviceSubs {
+        font-size: 75%;
+        color: rgba(255,255,255,0.75);
+    }
+}
+
+.list-item {
+    cursor: pointer;
+    &:hover,
+    &:active {
+        opacity: 0.75;
+    }
+}

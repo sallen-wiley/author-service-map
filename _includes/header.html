@@ -1,0 +1,56 @@
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href='{{ "/" | relative_url}}' class="navbar-brand">Wiley Researcher Tools</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='{{ "/#wrt-home-about" | relative_url}}'>About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Author Service Maps <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {% for my_page in site.pages %}
+                        {% if my_page.title %}
+                        <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+
+<!--
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="{{ "/" | relative_url}}">{{ site.title | escape }}</a>
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+          <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+
+  </div>
+
+</header>-->
