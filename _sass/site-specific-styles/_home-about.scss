@@ -1,0 +1,10 @@
+#wrt-home-about {
+    background-color: map-get($colors, grey-300);
+    padding-top: 64px;
+    padding-bottom: 64px;
+    svg {
+        * {
+            stroke: map-get($colors, grey-500);
+        }        
+    }
+}

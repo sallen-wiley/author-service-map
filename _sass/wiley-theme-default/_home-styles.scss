@@ -1,11 +1,31 @@
 #wrt-home-intro {
     background-color: map-get($colors, teal-dark);
-}
-
-#wrt-home-about {
-    background-color: map-get($colors, grey-200);
-    padding-top: 64px;
-    padding-bottom: 64px;
+    position: relative;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url("https://unsplash.it/1900/600/?image=998");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.75;
+        box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.25);
+    }
+    .home-intro__heading {
+        color: white;
+        font-size: 3em;
+        font-weight: 700;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+    .home-intro__card {
+        min-height: 200px;
+    }
 }
 
 #wrt-home-contact {
