@@ -45,7 +45,7 @@ $rTool-color: map-get($colors, orange);
 
 .controls {
     position: relative;
-    height: 800px;
+    min-height: 800px;
     font-family: 'Open Sans', sans-serif;
     overflow: hidden;
 }
@@ -107,6 +107,10 @@ $rTool-color: map-get($colors, orange);
 
 .list-cont {
     padding-top: 250px;
+}
+
+.filters-cont {
+    float: right;
 }
 
 // Position the wheel
