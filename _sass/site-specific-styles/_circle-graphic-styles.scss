@@ -34,9 +34,9 @@ $greys);
 
 // service colours
 $aTool-color: map-get($colors, orange);
-$info-general-color: map-get($colors, purple);
-$info-specific-color: map-get($colors, purple);
-$policy-color: map-get($colors, green);
+$info-general-color: map-get($colors, teal);
+$info-specific-color: map-get($colors, teal);
+$policy-color: map-get($colors, teal-dark);
 $rTool-color: map-get($colors, orange);
 
 #interactive-graphic {
