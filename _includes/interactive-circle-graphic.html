@@ -815,7 +815,7 @@ function getPosition(elementToFind, arrayElements) {
 function angleToRotateBy(x, y) {
     var a = (x * Math.PI / 180) - Math.PI;
     var b = (y * Math.PI / 180) - Math.PI;
-    return Math.atan2(Math.sin(a - b), Math.cos(a - b)) * (180 / Math.PI);
+    return Math.atan2(Math.sin(b - a), Math.cos(b - a)) * (180 / Math.PI);
 }
 
 function rotateWheel(x) {

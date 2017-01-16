@@ -15,13 +15,19 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href='{{ "/#wrt-home-about" | relative_url}}'>About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href='{{ "/#wrt-home-contact" | relative_url}}'>Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Author Service Maps <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        {% for my_page in site.pages %}
+                        {% for my_page in site.pages %}                        
                         {% if my_page.title %}
+                        
+                        {% if my_page.innactive %}
+                        <li><a>{{ my_page.title | escape }}<br><small>coming soon</small></a></li>
+                        {% else %}                        
                         <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+                        {% endif %}
+                        
                         {% endif %}
                         {% endfor %}
                     </ul>

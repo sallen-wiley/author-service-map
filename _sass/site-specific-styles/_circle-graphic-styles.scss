@@ -181,42 +181,62 @@ $rTool-color: map-get($colors, orange);
 .step1 {
     left: 340px;
     top: 140px;
-}
-
-.step7 {
-    left: 264px;
-    top: -16px;
-}
-
-.step6 {
-    left: 95px;
-    top: -55px;
-}
-
-.step5 {
-    left: -40px;
-    top: 53px;
-}
-
-.step4 {
-    left: -40px;
-    top: 226px;
-}
-
-.step3 {
-    left: 95px;
-    top: 335px;
+    .node-content {
+        background-color: map-get($colors, teal);
+    }
 }
 
 .step2 {
     left: 264px;
+    top: -16px;
+    .node-content {
+        background-color: map-get($colors, orange);
+    }
+}
+
+.step3 {
+    left: 95px;
+    top: -55px;
+    .node-content {
+        background-color: map-get($colors, red-light);
+    }
+}
+
+.step4 {
+    left: -40px;
+    top: 53px;
+    .node-content {
+        background-color: map-get($colors, blue);
+    }
+}
+
+.step5 {
+    left: -40px;
+    top: 226px;
+    .node-content {
+        background-color: map-get($colors, green);
+    }
+}
+
+.step6 {
+    left: 95px;
+    top: 335px;
+    .node-content {
+        background-color: map-get($colors, purple);
+    }
+}
+
+.step7 {
+    left: 264px;
     top: 296px;
+    .node-content {
+        background-color: map-get($colors, red-dark);
+    }
 }
 
 .list {
     transition-duration: 0.25s;
     min-height: 150px;
-    max-height: 50vh;
     max-width: 850px;
     position: relative;
     border-radius: 6px;
