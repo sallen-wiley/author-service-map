@@ -183,7 +183,7 @@ $rTool-color: map-get($colors, orange);
     top: 140px;
     .node-content {
         background-color: map-get($colors, teal);
-        background-image: url("/assets/img/discovery.jpg");
+        background-image: url($baseurl + "/assets/img/discovery.jpg");
     }
 }
 
@@ -192,7 +192,7 @@ $rTool-color: map-get($colors, orange);
     top: -16px;
     .node-content {
         background-color: map-get($colors, orange);
-        background-image: url("/assets/img/analysis.jpg");
+        background-image: url($baseurl + "/assets/img/analysis.jpg");
     }
 }
 
@@ -201,7 +201,7 @@ $rTool-color: map-get($colors, orange);
     top: -55px;
     .node-content {
         background-color: map-get($colors, red-light);
-        background-image: url("/assets/img/writing.jpg");
+        background-image: url($baseurl + "/assets/img/writing.jpg");
     }
 }
 

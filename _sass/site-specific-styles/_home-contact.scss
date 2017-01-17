@@ -10,7 +10,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url("/assets/img/speech-bubble-ellipsis.svg");
+        background-image: url($baseurl + "/assets/img/speech-bubble-ellipsis.svg");
         opacity: 0.2;
         background-position: left;
         background-repeat: no-repeat;

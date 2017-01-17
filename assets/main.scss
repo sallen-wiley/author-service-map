@@ -5,6 +5,8 @@
 
 // Put overrides here
 
+$baseurl: "{{ site.baseurl }}";
+
 // Import partials from the `wiley-theme-default` theme.
 @import "wiley-theme-default";
 @import "site-specific-styles";

@@ -10,7 +10,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url("/assets/img/lightbulb.svg");
+        background-image: url($baseurl + "/assets/img/lightbulb.svg");
         opacity: 0.2;
         background-position: right;
         background-repeat: no-repeat;
