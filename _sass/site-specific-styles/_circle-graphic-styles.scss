@@ -78,11 +78,11 @@ $rTool-color: map-get($colors, orange);
     }
 }
 
-.controls-bg {
+#controls-bg {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: -300px;
+    bottom: 0;
     width: 65%;
     background-color: map-get($colors, teal-dark);
 }
@@ -142,6 +142,10 @@ $rTool-color: map-get($colors, orange);
         box-sizing: border-box;
         transition-duration: 0.5s;
         transition-property: transform;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+//        background-blend-mode: multiply;
         .node-text {
             font-weight: 700;
             color: white;
@@ -159,7 +163,7 @@ $rTool-color: map-get($colors, orange);
             }
             .node-text__stage {
                 font-weight: 300;
-                opacity: 0.2;
+                opacity: 0.4;
                 font-size: 92px;
                 position: absolute;
                 top: 50%;
@@ -169,11 +173,7 @@ $rTool-color: map-get($colors, orange);
         }
     }
     &.active-node .node-content {
-        background-color: white;
         transform: scale(1.5,1.5);
-        .node-text {
-            color: map-get($colors, teal-dark);
-        }
     }
 }
 
@@ -183,6 +183,7 @@ $rTool-color: map-get($colors, orange);
     top: 140px;
     .node-content {
         background-color: map-get($colors, teal);
+        background-image: url("/assets/img/discovery.jpg");
     }
 }
 
@@ -191,6 +192,7 @@ $rTool-color: map-get($colors, orange);
     top: -16px;
     .node-content {
         background-color: map-get($colors, orange);
+        background-image: url("/assets/img/analysis.jpg");
     }
 }
 
@@ -199,6 +201,7 @@ $rTool-color: map-get($colors, orange);
     top: -55px;
     .node-content {
         background-color: map-get($colors, red-light);
+        background-image: url("/assets/img/writing.jpg");
     }
 }
 
@@ -207,6 +210,7 @@ $rTool-color: map-get($colors, orange);
     top: 53px;
     .node-content {
         background-color: map-get($colors, blue);
+        background-image: url("/assets/img/review.jpg");
     }
 }
 
@@ -215,6 +219,8 @@ $rTool-color: map-get($colors, orange);
     top: 226px;
     .node-content {
         background-color: map-get($colors, green);
+        background-image: url("/assets/img/publication.jpg");
+        
     }
 }
 
@@ -223,6 +229,7 @@ $rTool-color: map-get($colors, orange);
     top: 335px;
     .node-content {
         background-color: map-get($colors, purple);
+        background-image: url("/assets/img/promotion.jpg");
     }
 }
 
@@ -231,6 +238,7 @@ $rTool-color: map-get($colors, orange);
     top: 296px;
     .node-content {
         background-color: map-get($colors, red-dark);
+        background-image: url("/assets/img/assessment.jpg");
     }
 }
 

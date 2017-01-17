@@ -3,7 +3,7 @@
     <div class="controls">
 
     <div class="wheel-bg"></div>
-    <div class="controls-bg"></div>
+    <div id="controls-bg" class=""></div>
 
     <div class="wheel-cont">
 
@@ -846,7 +846,8 @@ for (i = 0; i < allNodes.length; i++) {
         for (j = 0; j < allNodes.length; j++) {
             allNodes[j].classList.remove("active-node")
         }
-        this.classList.add("active-node")
+        this.classList.add("active-node")       
+        
 
         //find index of clicked node and compute its angle position
         var thisNodeIndex = getPosition(this, allNodes),

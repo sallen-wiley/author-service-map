@@ -1,6 +1,6 @@
-#wrt-home-about {
+#wrt-home-contact {
     position: relative;
-    background-color: map-get($colors, grey-300);
+    background-color: map-get($colors, teal);
     padding-top: 64px;
     padding-bottom: 64px;
     &:before {
@@ -10,15 +10,15 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url("/assets/img/lightbulb.svg");
+        background-image: url("/assets/img/speech-bubble-ellipsis.svg");
         opacity: 0.2;
-        background-position: right;
+        background-position: left;
         background-repeat: no-repeat;
         background-size: 1000px;
     }
     svg {
         * {
-            stroke: map-get($colors, grey-500);
+            stroke: white;
         }        
     }
 }
