@@ -191,7 +191,7 @@ $rTool-color: map-get($colors, orange);
     left: 264px;
     top: -16px;
     .node-content {
-        background-color: map-get($colors, orange);
+        background-color: map-get($colors, red);
         background-image: url($baseurl + "/assets/img/analysis.jpg");
     }
 }
