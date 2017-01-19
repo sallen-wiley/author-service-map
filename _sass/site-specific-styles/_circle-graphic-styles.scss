@@ -136,20 +136,27 @@ $rTool-color: map-get($colors, orange);
         height: 120px;
         border: 8px solid map-get($colors, teal-dark);
         border-radius: 50%;
-        overflow: visible;
+        overflow: hidden;
         background-color: map-get($colors, teal);
         box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.5);
         box-sizing: border-box;
         transition-duration: 0.5s;
         transition-property: transform;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-//        background-blend-mode: multiply;
+        .node-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.25;
+        }
         .node-text {
             font-weight: 700;
             color: white;
-            text-shadow: 0 0 3px rgba(0,0,0,0.55);
+            text-shadow: 0 0 2px rgba(0,0,0,1);
             text-align: center;
             font-size: 16px;
             white-space: nowrap;
@@ -169,11 +176,15 @@ $rTool-color: map-get($colors, orange);
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                z-index: -1;
             }
         }
     }
     &.active-node .node-content {
         transform: scale(1.5,1.5);
+        .node-bg {
+            opacity: 1;
+        }
     }
 }
 
@@ -183,7 +194,10 @@ $rTool-color: map-get($colors, orange);
     top: 140px;
     .node-content {
         background-color: map-get($colors, teal);
-        background-image: url($baseurl + "/assets/img/discovery.jpg");
+        .node-bg {
+            background-image: url($baseurl + "/assets/img/discovery.jpg");    
+        }
+        
     }
 }
 
@@ -192,7 +206,10 @@ $rTool-color: map-get($colors, orange);
     top: -16px;
     .node-content {
         background-color: map-get($colors, orange);
-        background-image: url($baseurl + "/assets/img/analysis.jpg");
+        .node-bg {
+            background-image: url($baseurl + "/assets/img/analysis.jpg");    
+        }
+        
     }
 }
 
@@ -201,7 +218,10 @@ $rTool-color: map-get($colors, orange);
     top: -55px;
     .node-content {
         background-color: map-get($colors, red-light);
-        background-image: url($baseurl + "/assets/img/writing.jpg");
+        .node-bg {
+            background-image: url($baseurl + "/assets/img/writing.jpg");    
+        }
+        
     }
 }
 
@@ -210,7 +230,10 @@ $rTool-color: map-get($colors, orange);
     top: 53px;
     .node-content {
         background-color: map-get($colors, blue);
-        background-image: url($baseurl + "/assets/img/review.jpg");
+        .node-bg {
+            background-image: url($baseurl + "/assets/img/review.jpg");    
+        }
+        
     }
 }
 
@@ -219,7 +242,10 @@ $rTool-color: map-get($colors, orange);
     top: 226px;
     .node-content {
         background-color: map-get($colors, green);
-        background-image: url($baseurl + "/assets/img/publication.jpg");
+        .node-bg {
+            background-image: url($baseurl + "/assets/img/publication.jpg");    
+        }
+        
         
     }
 }
@@ -229,7 +255,10 @@ $rTool-color: map-get($colors, orange);
     top: 335px;
     .node-content {
         background-color: map-get($colors, purple);
-        background-image: url($baseurl + "/assets/img/promotion.jpg");
+        .node-bg {
+            background-image: url($baseurl + "/assets/img/promotion.jpg");    
+        }
+        
     }
 }
 
@@ -238,7 +267,10 @@ $rTool-color: map-get($colors, orange);
     top: 296px;
     .node-content {
         background-color: map-get($colors, red-dark);
-        background-image: url($baseurl + "/assets/img/assessment.jpg");
+        .node-bg {
+            background-image: url($baseurl + "/assets/img/assessment.jpg");    
+        }
+        
     }
 }
 

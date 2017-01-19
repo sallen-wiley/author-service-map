@@ -1,20 +1,26 @@
 #wrt-home-intro {
-    background-color: map-get($colors, teal-dark);
+    background-color: map-get($colors, grey-800);
     position: relative;
     
-    &:before {
+    #hero-bg {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        background-image: url("https://unsplash.it/1900/600/?image=998");
+        background-image: url($baseurl + "/assets/img/hero.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: 0.75;
+        opacity: 0.25;
         box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.25);
+        transition-property: filter;
+        transition-duration: 0.25s;
+        overflow: hidden;
+        &.blur {
+            filter: blur(10px);
+        }
     }
     .home-intro__heading {
         color: white;
@@ -22,8 +28,15 @@
         font-weight: 700;
         margin-top: 2em;
         margin-bottom: 2em;
+        text-shadow: 0 0 6px black;
     }
     .home-intro__card {
+        transition-property: box-shadow, transform;
+        transition-duration: 0.25s;
         min-height: 200px;
+        &.hover {
+            box-shadow: 0 10px 10px 0px rgba(0,0,0,0.5);
+            transform: translateY(-10px);
+        }
     }
 }
