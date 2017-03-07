@@ -114,7 +114,7 @@
 
 <script id="entry-template" type="text/x-handlebars-template">
     {{#each service}}
-    <div class="list-item {{serviceType}} {{serviceProvider}} {{#each serviceStages}}{{this}} {{/each}}" data-toggle="modal" data-target="#{{serviceId}}-modal">{{serviceName}}{{#if serviceSubs}}<br><span class="list-item__serviceSubs">{{serviceSubs}}</span>{{/if}}</div>
+    <div class="list-item {{serviceType}} {{serviceProvider}} {{#each serviceStages}}{{this}} {{/each}}" data-toggle="modal" data-target="#{{serviceId}}-modal">{{serviceName}}{{#if hasServiceSubs}}<br>{{#each serviceSubs}}<span class="list-item__serviceSubs">{{serviceSubName}}, </span>{{/each}}{{/if}}</div>
     {{/each}}
 </script>
 
@@ -128,10 +128,13 @@
                     <h4 class="modal-title" id="myModalLabel">{{serviceName}}</h4>
                 </div>
                 <div class="modal-body">
+                    {{#if serviceDescription}}
                     <p>{{serviceDescription}}</p>
-                    {{#if serviceLink}}
-                    <a href="{{serviceLink}}">Go to the {{serviceName}} site</a>
                     {{/if}}
+                    {{#if serviceLink}}
+                    <a href="{{serviceLink}}">Read more about {{serviceName}}...</a>
+                    {{/if}}
+                    {{#if hasServiceSubs}}{{#each serviceSubs}}<h5>{{serviceSubName}}</h5><p>{{serviceSubDescription}}</p><a href="{{serviceSubLink}}">Read more about {{serviceSubName}}...</a><hr>{{/each}}{{/if}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -162,7 +165,6 @@ var context = {
  {
    "serviceId": 41,
    "serviceName": "Altmetric Service",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -172,13 +174,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Track and measure the broader impact of your research, beyond traditional citation metrics.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Promotion/measure-impact.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 1,
    "serviceName": "Article Discovery Tools",
-   "serviceSubs": "Anywhere Article, ReadCube PDF, Journal Apps, Article Indexing, Research4Life",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -189,12 +218,39 @@ var context = {
       ""
    ],
    "serviceDescription": "",
-   "serviceLink": ""
+   "serviceLink": "",
+   "hasServiceSubs": true,
+   "serviceSubs": [
+      {
+         "serviceSubName": "Anywhere Article",
+         "serviceSubDescription": "Enhanced html enables you to access Wiley articles anywhere, anytime and on any device.",
+         "serviceSubLink": "http://olabout.wiley.com/WileyCDA/Section/id-819787.html"
+      },
+      {
+         "serviceSubName": "ReadCube PDF",
+         "serviceSubDescription": "Increased discoverability with enhanced PDF format – making it easier for you to discover, access and interact with Wiley content.",
+         "serviceSubLink": "http://olabout.wiley.com/WileyCDA/Section/id-812239.html"
+      },
+      {
+         "serviceSubName": "Journal Apps",
+         "serviceSubDescription": "Provides you with mobile access to Wiley content in an enhanced reading environment.",
+         "serviceSubLink": "http://olabout.wiley.com/WileyCDA/Section/id-814664.html"
+      },
+      {
+         "serviceSubName": "Article Indexing",
+         "serviceSubDescription": "Wiley Online Library is indexed by Google, PubMed, Scopus, Web of Science and many more – making it easy to find Wiley journal content.",
+         "serviceSubLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/find-a-journal/index.html"
+      },
+      {
+         "serviceSubName": "Research4Life",
+         "serviceSubDescription": "Provides up to 6,000 institutions (in developing countries) with free or low cost access to Wiley content.",
+         "serviceSubLink": "http://www.research4life.org/"
+      }
+   ]
 },
  {
    "serviceId": 40,
    "serviceName": "Article Share",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -204,13 +260,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "You and your co-authors can nominate up to ten colleagues to receive a publication alert and free online unrestricted access to your article.",
+   "serviceLink": "",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 3,
    "serviceName": "Author Compliance Tool",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -220,13 +303,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Makes it easy to understand funder, institution and journal policies and ensure compliance with your funder and/or institution requirements.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/licensing-open-access/open-access/author-compliance-tool.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 5,
    "serviceName": "Author Licensing",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -236,13 +346,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "View and sign your license in seconds. Open access license choice helping you to comply with your funder licensing requirements.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/licensing-open-access/licensing/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 8,
    "serviceName": "Automated Production",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -252,29 +389,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
-},
- {
-   "serviceId": 10,
-   "serviceName": "CHORUS",
-   "serviceSubs": "",
-   "serviceType": "aTool",
-   "serviceProvider": "wiley",
-   "serviceStages": [
-      "stage-4",
-      "stage-5",
-      "",
-      "",
-      ""
-   ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Part of web first publishing ambitions, this will automate portions of the production workflow, including proofing, improving speed and reducing opportunities for error. Please contact Natasha White for more information.",
+   "serviceLink": "http://portal.wiley.com/sites/functions/research/Pages/Production-Resources-Web-First-Publishing.aspx",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 43,
    "serviceName": "Citation Tracking",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -284,13 +432,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Track citations to your article, or sign up for citation alerts.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Promotion/measure-impact.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 11,
    "serviceName": "Colour Charges",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -300,13 +475,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "View the relevant colour charges on you chosen journal page.",
+   "serviceLink": "",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 12,
    "serviceName": "Cover Service",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -316,13 +518,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Promote your work with a featured cover image.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Promotion/journal-cover-image.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 14,
    "serviceName": "Data Sharing Service",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -332,13 +561,40 @@ var context = {
       "stage-6",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Easily share your data –  increasing the discoverability of your work, and helping you to comply with funder data sharing mandates.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/licensing-and-open-access/open-access/data-sharing.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 17,
    "serviceName": "Funder Picker Tool",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -348,13 +604,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Easily select funders and specify grants supporting your research – helping you to comply with funder mandates and saves you time with the article licensing process.",
+   "serviceLink": "",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 20,
    "serviceName": "Journal Finder",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -364,13 +647,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Find the perfect journal for your research – search for journals alphabetically, by subject area or by keyword.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/find-a-journal/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 42,
    "serviceName": "Kudos",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -380,13 +690,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Free platform to explain, enrich, and share your article for greater research impact.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Promotion/measure-impact.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 22,
    "serviceName": "Online Submission",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -396,13 +733,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Easy and quick online submission process.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/submission-peer-review/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 23,
    "serviceName": "Open Access",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -412,13 +776,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "OA options in your preferred subscription journal (gold or green) or publish in a fully open access journal where all articles are immediately freely available to read, download and share.",
+   "serviceLink": "http://www.wileyopenaccess.com/view/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 24,
    "serviceName": "ORCID",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -428,13 +819,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Distinguish yourself and connect you to your research activities.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Submission/orcid.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 25,
    "serviceName": "Overleaf",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -444,13 +862,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Collaborative, cloud-based authoring tool that make is easier to create, edit and then submit your article.",
+   "serviceLink": "http://portal.wiley.com/sites/functions/research/_layouts/15/WopiFrame.aspx?sourcedoc=/sites/functions/research/Journal%20Manager%20Toolkit%20Policies%20%20Procedures/Useful%20Letters%20and%20Communications/Pilots%20and%20Initiatives/Overleaf/OverLeaf%20Link%20Pilot%20FAQ.docx&action=default",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 26,
    "serviceName": "Page Charges",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -460,13 +905,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "View the article publication charges on your chosen journal page.",
+   "serviceLink": "",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 27,
    "serviceName": "PMC Deposition",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -476,13 +948,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "For gold OA, Wiley automatically deposits the Final Publisher version of your article into PMC upon publication (where appropriate). For green OA, Wiley automatically deposits the Accepted version (for NIH funded research) into PMC upon acceptance. For CHORUS funded research, Wiley makes the Accepted version available for free on Wiley Online Library after 12 months.",
+   "serviceLink": "https://www.ncbi.nlm.nih.gov/pmc/pub/addjournal/",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 28,
    "serviceName": "Production Tracking",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -492,13 +991,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Track your article through the key production stages.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Publication/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 30,
    "serviceName": "Publons",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -508,13 +1034,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Provides you with official recognition for your peer review contributions.",
+   "serviceLink": "https://authorservices.wiley.com/Reviewers/journal-reviewers/tools-and-resources/publons.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 36,
    "serviceName": "Transferable Peer Review",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -524,13 +1077,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "If your paper is rejected, the review travels with your paper, saving you time in the review process.",
+   "serviceLink": "https://authorservices.wiley.com/Reviewers/journal-reviewers/what-is-peer-review/types-of-peer-review.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 37,
    "serviceName": "Video Abstracts",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -540,13 +1120,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Make a video to explain your work to enhance the reader’s understanding and appreciation of your work.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Promotion/video-abstracts.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 38,
    "serviceName": "Wiley Editing Services",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -557,12 +1164,39 @@ var context = {
       ""
    ],
    "serviceDescription": "Offering expert help in English language editing, translation, manuscript formatting and figure preparation, Wiley Editing Services ensures that your manuscript is ready for submission.",
-   "serviceLink": "www.wileyauthors.com/wes"
+   "serviceLink": "www.wileyauthors.com/wes",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 39,
    "serviceName": "Wiley OA Accounts",
-   "serviceSubs": "",
    "serviceType": "aTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -572,13 +1206,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Helps institutions easily pay APCs for their authors – simply select your funder / institution when ordering open access and the payment is automatically taken care of.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/licensing-and-open-access/open-access/institutional-funder-payments.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 6,
    "serviceName": "Author Webinar Series",
-   "serviceSubs": "",
    "serviceType": "info",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -588,13 +1249,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Series of ‘how-to publish’ webinars offering you expert advice on a broad range of publishing topics and relating skills.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Prepare/webinars.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 7,
    "serviceName": "Author Workshops",
-   "serviceSubs": "",
    "serviceType": "info",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -604,13 +1292,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Free instructor-led workshops offering you expert advice on a broad range of publishing topics and relating skills. For more information, contact Jennifer Deroche.",
+   "serviceLink": "",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 15,
    "serviceName": "Editor Resources",
-   "serviceSubs": "",
    "serviceType": "info",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -620,13 +1335,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Offers information and guidance to support you in providing the best experience for your journal's community.",
+   "serviceLink": "https://authorservices.wiley.com/editors/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 18,
    "serviceName": "How to Blog Series",
-   "serviceSubs": "",
    "serviceType": "info",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -636,13 +1378,40 @@ var context = {
       "stage-6",
       "stage-7"
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Practical tools and advice on how to enhance the relevance, meaningfulness, and discoverability of your article from concept to post publication.",
+   "serviceLink": "https://hub.wiley.com/community/exchanges/discover",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 21,
    "serviceName": "Mentorship Program",
-   "serviceSubs": "",
    "serviceType": "info",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -652,13 +1421,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Guiding early career researchers through the peer review experience. For more information, please contact Elizabeth Matson.",
+   "serviceLink": "",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 33,
    "serviceName": "Researcher Academy",
-   "serviceSubs": "",
    "serviceType": "info",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -668,13 +1464,40 @@ var context = {
       "stage-6",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "An e-learning program launching in 2017. For more details, including what can be shared externally, please contact Graham Woodward.",
+   "serviceLink": "",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 4,
    "serviceName": "Author Guidelines",
-   "serviceSubs": "",
    "serviceType": "info info-specific",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -684,13 +1507,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Journal-specific guidelines to help you prepare, submit, track and then promote your paper.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Prepare/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 16,
    "serviceName": "Ethics Guidelines",
-   "serviceSubs": "",
    "serviceType": "info info-specific",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -700,13 +1550,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Assured standards in publishing ethics – benefit from the industry’s most comprehensive publishing ethics guidance.",
+   "serviceLink": "https://authorservices.wiley.com/ethics-guidelines/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 29,
    "serviceName": "Promotional Toolkit",
-   "serviceSubs": "",
    "serviceType": "info info-specific",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -716,13 +1593,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Seven promotional tools to help you measure and maximize the impact of your work.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/Promotion/promotional-toolkit.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 34,
    "serviceName": "Reviewer Resources",
-   "serviceSubs": "",
    "serviceType": "info info-specific",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -732,13 +1636,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Offers information and guidance to support you in providing the best peer review experience.",
+   "serviceLink": "https://authorservices.wiley.com/Reviewers/journal-reviewers/index.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 13,
    "serviceName": "Data Sharing Policy",
-   "serviceSubs": "",
    "serviceType": "policy",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -748,13 +1679,40 @@ var context = {
       "stage-6",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Journal specific policies (where available) to help you increase the discoverability of your datasets, and comply with funder mandates to share data.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/licensing-and-open-access/open-access/data-sharing.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 35,
    "serviceName": "Self-archiving Policy",
-   "serviceSubs": "",
    "serviceType": "policy",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -764,13 +1722,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Available in most Wiley journals – no embargo on the submitted (preprint) version and 12-24 month embargo for the accepted (peer-reviewed) version of your article.",
+   "serviceLink": "https://authorservices.wiley.com/author-resources/Journal-Authors/licensing-open-access/open-access/self-archiving.html",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 9,
    "serviceName": "ChemPlanner",
-   "serviceSubs": "",
    "serviceType": "rTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -780,13 +1765,40 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Workflow product that helps chemists find the best selection of diverse and viable routes for their synthesis. It combines computer-aided synthetic design backed by millions of empirical reactions.",
+   "serviceLink": "http://www.chemplanner.com/",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 },
  {
    "serviceId": 44,
    "serviceName": "Wiley Spectra Lab",
-   "serviceSubs": "",
    "serviceType": "rTool",
    "serviceProvider": "wiley",
    "serviceStages": [
@@ -796,8 +1808,36 @@ var context = {
       "",
       ""
    ],
-   "serviceDescription": "",
-   "serviceLink": ""
+   "serviceDescription": "Provides researchers with access to 2.3 million MS, NMR, and IR spectra – the broadest and largest collection in the world.  Helping to users to identify chemical substances.",
+   "serviceLink": "http://wileyspectralab.com/",
+   "hasServiceSubs": null,
+   "serviceSubs": [
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      },
+      {
+         "serviceSubName": "",
+         "serviceSubDescription": "",
+         "serviceSubLink": ""
+      }
+   ]
 }
 ]
     }

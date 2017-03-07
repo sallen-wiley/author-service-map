@@ -282,7 +282,7 @@ $rTool-color: map-get($colors, orange);
     border-radius: 6px;
     box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
     background-color: #ffffff;
-    overflow-y: scroll;
+    overflow: visible;
 }
 
 .filters {
