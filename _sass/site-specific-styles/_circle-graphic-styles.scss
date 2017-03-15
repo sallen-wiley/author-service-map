@@ -50,6 +50,47 @@ $rTool-color: map-get($colors, orange);
     overflow: hidden;
 }
 
+#interactive-graphic {
+    .service-user {
+        display: none;
+    }
+    &.active-stage-1 {
+        .service-stage-1-active {
+        display: inline;
+        }
+    }
+    &.active-stage-2 {
+        .service-stage-2-active {
+        display: inline;
+        }
+    }
+    &.active-stage-3 {
+        .service-stage-3-active {
+        display: inline;
+        }
+    }
+    &.active-stage-4 {
+        .service-stage-4-active {
+        display: inline;
+        }
+    }
+    &.active-stage-5 {
+        .service-stage-5-active {
+        display: inline;
+        }
+    }
+    &.active-stage-6 {
+        .service-stage-6-active {
+        display: inline;
+        }
+    }
+    &.active-stage-7 {
+        .service-stage-7-active {
+        display: inline;
+        }
+    }
+}
+
 .wheel-bg {
     position: absolute;
     top: 0;
