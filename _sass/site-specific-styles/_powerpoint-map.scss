@@ -5,4 +5,7 @@
 	background-size: cover;
 	background-position: center;
 	margin-bottom: 20px;
+	&.page-hero--competitor {
+		background-image: url($baseurl + "/assets/img/competitor-hero.jpg");		
+	}
 }

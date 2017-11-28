@@ -15,3 +15,5 @@ gulp.task('serve', function () {
 });
 
 gulp.task('default', ['build', 'serve']);
+
+// 'jekyll serve' to start
