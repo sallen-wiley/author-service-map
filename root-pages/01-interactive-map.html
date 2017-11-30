@@ -3,12 +3,30 @@ layout: default
 title: Interactive Map
 permalink: /interactive-map/
 ---
-<div id="interactive-graphic" class="container-fluid">
-    <div class="row">
-        
-            {% include interactive-circle-graphic.html %}
-    
-    </div>
+<div class="container-fluid">
+
+	<div class="row">
+		
+		<div class="page-hero page-hero--interactive col-md-12">
+		
+			<div class="container">
+			
+				<div class="row">
+				
+					<div class="col-md-12">
+					
+						<h1 class="page-hero--title">{{ page.title | escape }}</h1>
+					
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</div>
+		
+	</div>
+
 </div>
 
 <div class="container">
@@ -19,6 +37,14 @@ permalink: /interactive-map/
             <p>This interactive map allows you to click through each stage of the author journey and see the various services Wiley offers researchers, including a brief description and a link to more information (where available). Each service is color-coded based on whether it is a tool or product, a learning service, or a policy-based service.</p>
         
         </div>
+    
+    </div>
+</div>
+
+<div id="interactive-graphic" class="container-fluid">
+    <div class="row">
+        
+            {% include interactive-circle-graphic.html %}
     
     </div>
 </div>

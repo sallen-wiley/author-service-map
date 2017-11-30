@@ -8,4 +8,13 @@
 	&.page-hero--competitor {
 		background-image: url($baseurl + "/assets/img/competitor-hero.jpg");		
 	}
+	&.page-hero--interactive {
+		background-image: url($baseurl + "/assets/img/interactive-hero.jpg");		
+	}
+	.page-hero--title {
+		margin-top: 50px;
+		font-size: 48px;
+		color: white;
+		text-shadow: 0 0 4px rgba(0,0,0,1);
+	}
 }
